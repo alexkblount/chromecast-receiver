@@ -66,7 +66,7 @@ playerManager.setMediaPlaybackInfoHandler((loadRequest, playbackConfig) => {
 // intercept the LOAD request to be able to read in a contentId and get data
 playerManager.setMessageInterceptor(
   cast.framework.messages.MessageType.LOAD, loadRequestData => {
-    /*** Do something to the loadRequestData if necessary ***/
+    loadRequestData.media.hlsSegmentFormat = cast.framework.messages.HlsSegmentFormat.TS;
     return loadRequestData;
   });
 
